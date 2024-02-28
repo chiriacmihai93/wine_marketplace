@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Approval</title>
+</head>
+<body>
+    <h1>Winery Approval List</h1>
+    <ul>
+        {% for winery in unapproved_wineries %}
+            <li>{{ winery.name }} - {{ winery.location }}
+                <form action="{% url 'approve_winery' winery.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Approve</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "App_marketplace/base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Crame</title>
+</head>
+<body>
+    <h1>Crame</h1>
+    <ul>
+        {% for winery in wineries %}
+            <li>
+                <h2>{{ winery.name }}</h2>
+                <p><strong>Locatie:</strong> {{ winery.location }}</p>
+                <p><strong>Descriere:</strong> {{ winery.description }}</p>
+                <!-- Alte detalii despre crama -->
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

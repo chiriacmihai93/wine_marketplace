@@ -1,0 +1,43 @@
+{% extends "App_marketplace/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listă Crame</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'wineries/styles.css' %}">
+</head>
+<body>
+
+{% block content %}
+<!-- Formular de căutare și filtrare -->
+<form method="GET" action="{% url 'winery_list' %}" class="search-form">
+    <input type="text" name="name" placeholder="Numele cramei...">
+    <input type="text" name="location" placeholder="Localitate...">
+    <input type="text" name="grape_varieties" placeholder="Soiuri de struguri...">
+    <button type="submit">Caută</button>
+</form>
+<a href="{% url 'add_winery' %}" class="btn btn-primary" style="float: right;">Adaugă o nouă cramă</a>
+
+<!-- Lista de crame -->
+<ul>
+        {% for winery in wineries %}
+    <li>
+        <h2>{{ winery.name }}</h2>
+        <!-- Afișarea imaginii -->
+        {% if winery.image %}
+        <img src="{{ winery.image.url }}" alt="{{ winery.name }}">
+        {% endif %}
+        <!-- Afișarea unei părți din descriere -->
+        <p><strong>Locație:</strong> {{ winery.location }}</p>
+        <p><strong>Descriere:</strong> {{ winery.description|truncatechars:100 }}</p>
+        <!-- Butonul "Citește mai mult" care duce la pagina cramei -->
+        <a href="{% url 'winery_detail' winery.id %}">Citește mai mult</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+</body>
+</html>

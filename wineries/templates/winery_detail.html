@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ winery.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>{{ winery.name }}</h1>
+    <img src="{{ winery.image.url }}" alt="{{ winery.name }}">
+
+    <div>
+        <h2>Detalii</h2>
+        <p><strong>Locație:</strong> {{ winery.location }}</p>
+        <p><strong>Descriere:</strong> {{ winery.description }}</p>
+        <p><strong>Soiuri de struguri:</strong> {{ winery.grape_varieties }}</p>
+        <p><strong>Administrator:</strong> {{ winery.administrator_name }}</p>
+        <p><strong>Număr de telefon:</strong> {{ winery.phone_number }}</p>
+        <p><strong>Email:</strong> {{ winery.email }}</p>
+    </div>
+
+    <a href="{% url 'winery_list' %}" class="btn btn-primary">Înapoi la listă</a>
+</div>
+
+</body>
+</html>

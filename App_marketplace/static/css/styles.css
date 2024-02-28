@@ -1,0 +1,5 @@
+.card img {
+    height: 200px; /* Specifică înălțimea dorită pentru imaginile produselor */
+    width: 100%; /* Asigură că imaginea ocupă întreaga lățime a cardului */
+    object-fit: cover; /* Asigură că imaginea este încadrată corect în cadrul dimensiunilor specificate */
+}

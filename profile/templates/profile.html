@@ -1,0 +1,22 @@
+{% extends "App_marketplace/base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profilul tau</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+        {% if field.name == 'date_of_birth' %}
+            <p>{{ field.label_tag }}<input type="date" name="{{ field.name }}" value="{{ field.value|date:'d/m/Y' }}" /></p>
+        {% else %}
+            <p>{{ field.label_tag }} {{ field }}</p>
+        {% endif %}
+    {% endfor %}
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
+{% endblock %}
