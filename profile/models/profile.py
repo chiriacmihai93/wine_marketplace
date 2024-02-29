@@ -14,4 +14,3 @@ class Profile(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=100, blank=True, null=True)
     phone_number = models.CharField(max_length=20, blank=True, null=True)
-S
