@@ -130,7 +130,7 @@ def finalizeaza_comanda(request):
 
     return redirect(reverse('App_marketplace:home'))
 
-
+@login_required
 def shopping_cart(request):
     order_items = OrderItem.objects.filter(user=request.user, ordered=False)
 
