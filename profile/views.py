@@ -14,3 +14,9 @@ def profile(request):
             form.save()
             return redirect('profile')
     return render(request, 'profile.html', {'form': form})
+
+def profile_redirect(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    else:
+        return redirect('profile')
