@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-import pymysql
-pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,16 +85,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'marketplace_app.sqlite3',
     }
 }
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "App_marketplace",
-#         "USER": "root",
-#         "PASSWORD": "Sherman16.",
-#         "HOST": "localhost",
-#         "PORT": "3306",
-#     }
-# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -140,11 +129,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# SESSION_COOKIE = 'django.contrib.session.backends.db'
-# SESSION_COOKIE_NAME = 'my_session'
-# SESSION_COOKIE_ME = 603803
-# SESSION_SAVE_EVERY_REQUEST = True
-# # Default primary key field type
-# # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
